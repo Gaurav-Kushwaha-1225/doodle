@@ -114,7 +114,7 @@ The app uses Firestore with the following collections:
 
 
 ## APK Download
-
+https://drive.google.com/drive/folders/1dqTdDH99UG8zhzayjJepCO6i5dMHW-hC?usp=drive_link
 
 ## AI Tools Usage
 
