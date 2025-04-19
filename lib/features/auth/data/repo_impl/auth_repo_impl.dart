@@ -1,9 +1,9 @@
-import 'package:doodletracker/features/auth/data/data_sources/auth_data_sources.dart';
+import 'package:doodletracker/features/auth/data/data_sources/auth_data_sources_impl.dart';
 import 'package:doodletracker/features/auth/domain/entities/user_entity.dart';
 import 'package:doodletracker/features/auth/domain/repos/user_repo.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  final AuthRemoteDataSource remoteDataSource;
+  final AuthRemoteDataSourceImpl remoteDataSource;
 
   AuthRepositoryImpl(this.remoteDataSource);
 

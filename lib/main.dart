@@ -23,12 +23,6 @@ Future<void> main() async {
   );
   final storage = await SharedPreferences.getInstance();
   
-  // Set Firebase Auth settings for development
-  // await FirebaseAuth.instance.setSettings(
-  //   appVerificationDisabledForTesting: false, // Set to false to receive real OTPs
-  //   forceRecaptchaFlow: false,
-  // );
-
   final GoRouter router = DoodleRouter().router;
   runApp(MultiBlocProvider(
     providers: [

@@ -8,6 +8,20 @@ class VerifyPhoneNumberEvent extends AuthEvent {
   VerifyPhoneNumberEvent({required this.phoneNumber});
 }
 
+class CodeSentEvent extends AuthEvent {
+  final String verificationId;
+  CodeSentEvent({required this.verificationId});
+}
+
+class AuthErrorEvent extends AuthEvent {
+  final String message;
+  AuthErrorEvent({required this.message});
+}
+
+class AuthDoneEvent extends AuthEvent {
+  AuthDoneEvent();
+}
+
 class VerifyOTPEvent extends AuthEvent {
   final String verificationId;
   final String smsCode;

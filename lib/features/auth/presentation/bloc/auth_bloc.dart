@@ -30,43 +30,35 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<VerifyOTPEvent>(_onVerifyOTP);
     on<CheckAuthStatusEvent>(_onCheckAuthStatus);
     on<SignOutEvent>(_onSignOut);
+    on<CodeSentEvent>((event, emit) {
+      emit(AuthCodeSent(verificationId: event.verificationId));
+    });
+    on<AuthErrorEvent>((event, emit) {
+      emit(AuthError(message: event.message));
+    });
   }
 
   Future<void> _onVerifyPhoneNumber(
     VerifyPhoneNumberEvent event,
     Emitter<AuthState> emit,
   ) async {
-    if (emit.isDone) return;
     emit(AuthLoading());
     try {
-      final completer = Completer<void>();
-
       await verifyPhoneUseCase(
         phoneNumber: event.phoneNumber,
         onCodeSent: (String verificationId) {
-          if (!emit.isDone) {
-            _verificationId = verificationId;
-            emit(AuthCodeSent(verificationId: verificationId));
-          }
-          if (!completer.isCompleted) completer.complete();
+          _verificationId = verificationId;
+          add(CodeSentEvent(verificationId: verificationId));
         },
         onVerificationCompleted: (String message) {
-          if (!emit.isDone) {
-            emit(AuthLoading());
-          }
-          if (!completer.isCompleted) completer.complete();
+          add(AuthDoneEvent());
         },
         onVerificationFailed: (String message) {
-          if (!emit.isDone) {
-            emit(AuthError(message: message));
-          }
-          if (!completer.isCompleted) completer.complete();
+          add(AuthErrorEvent(message: message));
         },
       );
-
-      await completer.future;
     } catch (e) {
-      if (!emit.isDone) {}
+      add(AuthErrorEvent(message: e.toString()));
     }
   }
 

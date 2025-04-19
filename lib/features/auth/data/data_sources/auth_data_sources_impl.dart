@@ -1,13 +1,11 @@
-import 'package:doodletracker/features/auth/data/data_sources/auth_data_sources.dart';
 import 'package:doodletracker/features/auth/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
+class AuthRemoteDataSourceImpl {
   final FirebaseAuth _firebaseAuth;
 
   AuthRemoteDataSourceImpl(this._firebaseAuth);
 
-  @override
   Future<void> verifyPhoneNumber({
     required String phoneNumber,
     required Function(String) onCodeSent,
@@ -19,7 +17,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         phoneNumber: phoneNumber,
         timeout: const Duration(seconds: 60),
         verificationCompleted: (PhoneAuthCredential credential) async {
-          // Only call verification completed if auto-verification happens
           onVerificationCompleted('Phone number automatically verified');
         },
         verificationFailed: (FirebaseAuthException e) {
@@ -37,7 +34,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           onCodeSent(verificationId);
         },
         codeAutoRetrievalTimeout: (String verificationId) {
-          // Don't emit any state here as it might interfere with the flow
         },
         forceResendingToken: null,
       );
@@ -46,7 +42,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
-  @override
   Future<UserModel> verifyOTP({
     required String verificationId,
     required String smsCode,
@@ -65,7 +60,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
-  @override
   Future<UserModel?> getCurrentUser() async {
     final user = _firebaseAuth.currentUser;
     if (user != null) {
@@ -74,7 +68,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     return null;
   }
 
-  @override
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
