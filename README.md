@@ -92,15 +92,7 @@ The app interacts with the following Firebase APIs:
 ## Database Schema
 The app uses Firestore with the following collections:
 
-1. **Users**:
-   ```
-   {
-     uid: String,
-     phoneNumber: String,
-   }
-   ```
-
-2. **Habits**:
+1. **Habits**:
    ```
    {
      id: String,
@@ -111,9 +103,11 @@ The app uses Firestore with the following collections:
    ```
 
 ## Screenshots
-
+You can look after the screenshots available here for reference.
+https://drive.google.com/drive/folders/1dqTdDH99UG8zhzayjJepCO6i5dMHW-hC?usp=drive_link
 
 ## APK Download
+You can download the .apk file from this drive link.
 https://drive.google.com/drive/folders/1dqTdDH99UG8zhzayjJepCO6i5dMHW-hC?usp=drive_link
 
 ## AI Tools Usage
