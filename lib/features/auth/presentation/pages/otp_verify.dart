@@ -45,7 +45,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                 children: [
                   Text(
                     'Enter the OTP sent to your phone',
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context).textTheme.titleMedium,
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 20),
@@ -139,7 +139,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   SizedBox(
                     width: double.infinity,
                     height: 50,
