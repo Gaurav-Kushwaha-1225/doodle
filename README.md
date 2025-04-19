@@ -105,7 +105,7 @@ The app uses Firestore with the following collections:
    {
      id: String,
      userId: String,
-     title: String,
+     name: String,
      updatedAt: Timestamp,
    }
    ```
@@ -115,6 +115,23 @@ The app uses Firestore with the following collections:
 
 ## APK Download
 
+
+## AI Tools Usage
+
+### AI Tools Used
+- **ChatGPT**: Helped with debugging
+- **Claude**: Utilized for code review, documentation, and firebase, chatgpt
+
+### Problems Solved with AI
+1. **Firebase Integration**:
+   - Setting up Phone Authentication flow
+   - Structuring Firestore database schema
+2. Generating template from clean architecture blog.
+
+### Helpful Prompts
+1. Firebase auth using mobile no - Give the process and all functionalities for a Flutter app use https://dev.to/princetomarappdev/clean-code-architecture-and-bloc-in-flutter-a-comprehensive-guide-for-beginners-and-experts-33k8 link for code structure that uses clean code architecture and BLoC
+2. Dont use the dependecy injection use bloc provider and bloc repository provider multi ones in main.dart
+3. Give me firebase commands for setting up project and checking current account
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
