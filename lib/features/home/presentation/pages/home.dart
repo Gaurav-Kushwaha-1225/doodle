@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                                     cursorColor: Theme.of(context).primaryColor,
                                     validator: (value) {
                                       if (value == null || value == "") {
-                                        return 'Please enter the habbit';
+                                        return 'Please enter the habit';
                                       }
                                       return null;
                                     },
